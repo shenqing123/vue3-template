@@ -1,11 +1,3 @@
-import axios from "axios";
-const request = axios.create({
-    baseURL: 'https://restapi.amap.com/v3/weather',
-    timeout: 5000
-})
-request.interceptors.response.use(res=> {
-    return res.data
-}, err=>{
-    return Promise.reject(err)
-})
-export default request
+import request  from "./axios";
+const KEY = '792a0f0ea1f920a24882d3d1f6e2fc60'
+export const getLocalCity = () => request.get(`/ip?key=${KEY}`)
