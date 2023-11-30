@@ -5,19 +5,19 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),
-    AutoImport({
-	  imports: [
-		// 需要自动导入的API，自动导入vue和vue-router相关函数
-		'vue',
-		'vue-router',
-		'pinia',
-	  ],
-	  resolvers: [ElementPlusResolver()],
-	   // 指明 .d.ts 文件的位置和文件名，生成 `auto-import.d.ts` 全局声明
-	  dts: 'src/types/auto-import.d.ts',
-    }),
-    Components({
-      resolvers: [ElementPlusResolver()],
-    }),],
+	plugins: [vue(),
+	AutoImport({
+		imports: [
+			// 需要自动导入的API，自动导入vue和vue-router相关函数
+			'vue',
+			'vue-router',
+			'pinia',
+		],
+		resolvers: [ElementPlusResolver()],
+		// 指明 .d.ts 文件的位置和文件名，生成 `auto-import.d.ts` 全局声明
+		dts: 'src/types/auto-import.d.ts',
+	}),
+	Components({
+		resolvers: [ElementPlusResolver()],
+	}),],
 })
